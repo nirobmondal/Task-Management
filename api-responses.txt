@@ -1,0 +1,20 @@
+*****API = get task by id (http://localhost:3000/task/id)*******
+----------------------------------------------------------------
+
+1. Valid id = http://localhost:3000/task/1
+
+  Outuput:
+  {
+    "id": 1,
+    "title": "Learn Node.js",
+    "completed": false,
+    "priority": "high",
+    "createdAt": "2025-11-03T11:17:28.224Z"
+  }
+
+2. Invalid id = http://localhost:3000/task/7
+
+  Output: 
+  {
+    "error": "Task not found"
+  }

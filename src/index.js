@@ -51,15 +51,22 @@ app.get("/", (req, res) => {
   res.send("Task Management API is running!");
 });
 
-
 app.get("/tasks", (req, res) => {
   res.json(tasks);
 });
 
+app.get("/task/:id", (req, res) => {
+  const id = Number(req.params.id);
+
+  const task = tasks.find((t) => t.id === id);
+  if (!task) return res.status(404).json({ error: "Task not found" });
+
+  res.json(task);
+});
 
 app.get("/health", (req, res) => {
   res.json(health);
-})
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
